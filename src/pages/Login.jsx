@@ -7,7 +7,7 @@ const Login = () => {
     <div className="grid h-screen place-items-center">
       <Form
         method="post"
-        className="card bg-base-100 flex w-96 flex-col gap-y-4 p-8 shadow-lg"
+        className="card bg-base-200 flex w-96 flex-col gap-y-4 p-8 shadow-lg"
       >
         <h4 className="text-center text-3xl font-bold">Login</h4>
         <FormInput
