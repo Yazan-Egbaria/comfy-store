@@ -2,10 +2,32 @@ import { BsCart3, BsMoonFill, BsSunFill } from "react-icons/bs";
 import { FaBarsStaggered } from "react-icons/fa6";
 import { NavLink } from "react-router-dom";
 import NavLinks from "./NavLinks";
+import { useEffect, useState } from "react";
+
+const themes = {
+  light: "light",
+  dark: "dark",
+};
+
+const getThemeFromLocalStorage = () => {
+  return localStorage.getItem("theme") || themes.light;
+};
 
 const Navbar = () => {
+  const [theme, setTheme] = useState(getThemeFromLocalStorage());
+  const handleTheme = () => {
+    const { light, dark } = themes;
+    const newTheme = theme === light ? dark : light;
+    setTheme(newTheme);
+  };
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
   return (
-    <nav className="bg-base-200 pagePadding">
+    <nav className="pagePadding bg-base-200">
       <div className="navbar">
         <div className="navbar-start">
           {/* LOGO*/}
@@ -22,7 +44,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-200 p-2 shadow"
             >
               <NavLinks />
             </ul>
@@ -37,11 +59,18 @@ const Navbar = () => {
 
         <div className="navbar-end">
           {/* THEME SETUP */}
+          <label className="swap swap-rotate">
+            <input type="checkbox" onChange={handleTheme} />
+            {/* SUN */}
+            <BsSunFill className="swap-on h-4 w-4" />
+            {/* MOON */}
+            <BsMoonFill className="swap-off h-4 w-4" />
+          </label>
           {/* CART */}
-          <NavLink to="cart" className="btn btn-ghost btn-circle btn-md ml-4">
+          <NavLink to="cart" className="btn btn-circle btn-ghost btn-md ml-4">
             <div className="indicator">
               <BsCart3 className="h-6 w-6" />
-              <span className="badge badge-primary badge-sm indicator-item">
+              <span className="badge indicator-item badge-primary badge-sm">
                 0
               </span>
             </div>
