@@ -12,6 +12,8 @@ import {
   Register,
   SingleProduct,
 } from "../pages";
+import { loader } from "../pages/Landing";
+import { singleProductloader } from "../pages/SingleProduct";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +24,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Landing />,
+        loader: loader,
       },
       {
         path: "products",
@@ -30,6 +33,7 @@ export const router = createBrowserRouter([
       {
         path: "products/:id",
         element: <SingleProduct />,
+        loader: singleProductloader,
       },
       {
         path: "about",

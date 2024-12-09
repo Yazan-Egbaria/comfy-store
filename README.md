@@ -268,7 +268,7 @@ const HomeLayout = () => {
   return (
     <>
       <nav>
-        <span className="text-primary text-4xl">Comfy</span>
+        <span className="text-4xl text-primary">Comfy</span>
       </nav>
       <Outlet />
     </>
@@ -325,7 +325,7 @@ const Error = () => {
     return (
       <main className="grid min-h-[100vh] place-items-center px-8">
         <div className="text-center">
-          <p className="text-primary text-9xl font-semibold">404</p>
+          <p className="text-9xl font-semibold text-primary">404</p>
           <h1 className="mt-4 text-3xl font-bold tracking-tight sm:text-5xl">
             Page not found
           </h1>
@@ -505,7 +505,7 @@ const Login = () => {
     <section className="grid h-screen place-items-center">
       <Form
         method="post"
-        className="card bg-base-100 flex w-96 flex-col gap-y-4 p-8 shadow-lg"
+        className="card flex w-96 flex-col gap-y-4 bg-base-100 p-8 shadow-lg"
       >
         <h4 className="text-center text-3xl font-bold">Login</h4>
         <FormInput
@@ -530,7 +530,7 @@ const Login = () => {
           Not a member yet?
           <Link
             to="/register"
-            className="link link-hover link-primary ml-2 capitalize"
+            className="link-hover link link-primary ml-2 capitalize"
           >
             register
           </Link>
@@ -623,7 +623,7 @@ const Register = () => {
     <section className="grid h-screen place-items-center">
       <Form
         method="POST"
-        className="card bg-base-100 flex w-96 flex-col gap-y-4 p-8 shadow-lg"
+        className="card flex w-96 flex-col gap-y-4 bg-base-100 p-8 shadow-lg"
       >
         <h4 className="text-center text-3xl font-bold">Register</h4>
         <FormInput type="text" label="username" name="username" />
@@ -637,7 +637,7 @@ const Register = () => {
           Already a member?
           <Link
             to="/login"
-            className="link link-hover link-primary ml-2 capitalize"
+            className="link-hover link link-primary ml-2 capitalize"
           >
             login
           </Link>
@@ -712,15 +712,15 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="bg-neutral text-neutral-content py-2">
+    <header className="bg-neutral py-2 text-neutral-content">
       <div className="align-element flex justify-center sm:justify-end">
         {/* USER */}
         {/* LINKS */}
         <div className="flex items-center justify-center gap-x-6">
-          <Link to="/login" className="link link-hover text-xs sm:text-sm">
+          <Link to="/login" className="link-hover link text-xs sm:text-sm">
             Sign in / Guest
           </Link>
-          <Link to="/register" className="link link-hover text-xs sm:text-sm">
+          <Link to="/register" className="link-hover link text-xs sm:text-sm">
             Create an Account
           </Link>
         </div>
@@ -793,7 +793,7 @@ import { NavLink } from "react-router-dom";
 const Navbar = () => {
   return (
     <nav className="bg-base-200">
-      <div className="navbar align-element">
+      <div className="align-element navbar">
         <div className="navbar-start">
           {/* Title */}
           <NavLink
@@ -809,7 +809,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-200 p-2 shadow"
             >
               nav links
             </ul>
@@ -821,10 +821,10 @@ const Navbar = () => {
         <div className="navbar-end">
           {/* THEME ICONS */}
           {/* CART LINK*/}
-          <NavLink to="cart" className="btn btn-ghost btn-circle btn-md ml-4">
+          <NavLink to="cart" className="btn btn-circle btn-ghost btn-md ml-4">
             <div className="indicator">
               <BsCart3 className="h-6 w-6" />
-              <span className="badge badge-sm badge-primary indicator-item">
+              <span className="badge indicator-item badge-primary badge-sm">
                 8
               </span>
             </div>
@@ -1039,7 +1039,7 @@ const About = () => {
         </h1>
         <div className="stats bg-primary shadow">
           <div className="stat">
-            <div className="stat-title text-primary-content text-4xl font-bold tracking-widest">
+            <div className="stat-title text-4xl font-bold tracking-widest text-primary-content">
               comfy
             </div>
           </div>
@@ -1114,13 +1114,13 @@ const Hero = () => {
           </Link>
         </div>
       </div>
-      <div className="lg:carousel carousel-center bg-neutral rounded-box hidden h-[28rem] space-x-4 p-4">
+      <div className="carousel-center hidden h-[28rem] space-x-4 rounded-box bg-neutral p-4 lg:carousel">
         {carouselImages.map((image, index) => {
           return (
             <div key={image} className="carousel-item">
               <img
                 src={image}
-                className="rounded-box h-full w-80 object-cover"
+                className="h-full w-80 rounded-box object-cover"
               />
             </div>
           );
@@ -1333,7 +1333,7 @@ SectionTitle.jsx
 ```js
 const SectionTitle = ({ text }) => {
   return (
-    <div className="border-base-300 border-b pb-5">
+    <div className="border-b border-base-300 pb-5">
       <h2 className="text-3xl font-medium capitalize tracking-wider">{text}</h2>
     </div>
   );
@@ -1535,7 +1535,7 @@ const SingleProduct = () => {
         {/* PRODUCT INFO */}
         <div>
           <h1 className="text-3xl font-bold capitalize">{title}</h1>
-          <h4 className="text-neutral-content mt-2 text-xl font-bold">
+          <h4 className="mt-2 text-xl font-bold text-neutral-content">
             {company}
           </h4>
 
@@ -1555,7 +1555,7 @@ const SingleProduct = () => {
                     key={color}
                     type="button"
                     className={`badge mr-2 h-6 w-6 ${
-                      color === productColor && "border-secondary border-2"
+                      color === productColor && "border-2 border-secondary"
                     }`}
                     style={{ backgroundColor: color }}
                     onClick={() => setProductColor(color)}
@@ -1572,7 +1572,7 @@ const SingleProduct = () => {
               </h4>
             </label>
             <select
-              className="select select-secondary select-bordered select-md"
+              className="select select-bordered select-secondary select-md"
               value={amount}
               onChange={handleAmount}
             >
@@ -1816,7 +1816,7 @@ const ProductList = () => {
           <Link
             key={product.id}
             to={`/products/${product.id}`}
-            className="bg-base-100 group flex flex-col flex-wrap gap-y-4 rounded-lg p-8 shadow-xl duration-300 hover:shadow-2xl sm:flex-row"
+            className="group flex flex-col flex-wrap gap-y-4 rounded-lg bg-base-100 p-8 shadow-xl duration-300 hover:shadow-2xl sm:flex-row"
           >
             <img
               src={image}
@@ -1825,7 +1825,7 @@ const ProductList = () => {
             />
             <div className="ml-0 sm:ml-16">
               <h3 className="text-lg font-medium capitalize">{title}</h3>
-              <h4 className="text-md text-neutral-content capitalize">
+              <h4 className="text-md capitalize text-neutral-content">
                 {company}
               </h4>
 
@@ -1870,7 +1870,7 @@ const ProductsContainer = () => {
   return (
     <>
       {/* HEADER */}
-      <div className="border-base-300 mt-8 flex items-center justify-between border-b pb-5">
+      <div className="mt-8 flex items-center justify-between border-b border-base-300 pb-5">
         <h4 className="text-md font-medium">
           {totalProducts} product{totalProducts > 1 && "s"}
         </h4>
@@ -1946,7 +1946,7 @@ import FormInput from "./FormInput";
 
 const Filters = () => {
   return (
-    <Form className="bg-base-200 grid items-center gap-x-4 gap-y-8 rounded-md px-8 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <Form className="grid items-center gap-x-4 gap-y-8 rounded-md bg-base-200 px-8 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {/* SEARCH */}
       <FormInput
         type="search"
@@ -2214,7 +2214,7 @@ const FormCheckbox = ({ label, name, defaultValue, size }) => {
         type="checkbox"
         name={name}
         defaultChecked={defaultValue}
-        className={`checkbox checkbox-primary ${size}`}
+        className={`checkbox-primary checkbox ${size}`}
       />
     </div>
   );
@@ -2375,7 +2375,7 @@ const Filters = () => {
   const { meta, params } = useLoaderData();
   const { search, company, category, shipping, order, price } = params;
   return (
-    <Form className="bg-base-200 grid items-center gap-x-4 gap-y-8 rounded-md px-8 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+    <Form className="grid items-center gap-x-4 gap-y-8 rounded-md bg-base-200 px-8 py-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {/* SEARCH */}
       <FormInput
         type="search"
@@ -2536,7 +2536,7 @@ const PaginationContainer = () => {
     <div className="mt-16 flex justify-end">
       <div className="join">
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn join-item btn-xs sm:btn-md"
           onClick={() => {
             let prevPage = page - 1;
             if (prevPage < 1) prevPage = pageCount;
@@ -2550,8 +2550,8 @@ const PaginationContainer = () => {
             <button
               onClick={() => handlePageChange(pageNumber)}
               key={pageNumber}
-              className={`btn btn-xs sm:btn-md join-item border-none ${
-                pageNumber === page ? "bg-base-300 border-base-300" : ""
+              className={`btn join-item btn-xs border-none sm:btn-md ${
+                pageNumber === page ? "border-base-300 bg-base-300" : ""
               }`}
             >
               {pageNumber}
@@ -2559,7 +2559,7 @@ const PaginationContainer = () => {
           );
         })}
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn join-item btn-xs sm:btn-md"
           onClick={() => {
             let nextPage = page + 1;
             if (nextPage > pageCount) nextPage = 1;
@@ -3192,17 +3192,17 @@ const CartTotals = () => {
     <div className="card bg-base-200">
       <div className="card-body">
         {/* SUBTOTAL */}
-        <p className="border-base-300 flex justify-between border-b pb-2 text-xs">
+        <p className="flex justify-between border-b border-base-300 pb-2 text-xs">
           <span>Subtotal</span>
           <span className="font-medium">{formatPrice(cartTotal)}</span>
         </p>
         {/* SHIPPING */}
-        <p className="border-base-300 flex justify-between border-b pb-2 text-xs">
+        <p className="flex justify-between border-b border-base-300 pb-2 text-xs">
           <span>Shipping</span>
           <span className="font-medium">{formatPrice(shipping)}</span>
         </p>
         {/* Tax */}
-        <p className="border-base-300 flex justify-between border-b pb-2 text-xs">
+        <p className="flex justify-between border-b border-base-300 pb-2 text-xs">
           <span>Tax</span>
           <span className="font-medium">{formatPrice(tax)}</span>
         </p>
@@ -3334,7 +3334,7 @@ const CartItem = ({ cartItem }) => {
   return (
     <article
       key={cartID}
-      className="border-base-300 mb-12 flex flex-col flex-wrap gap-y-4 border-b pb-6 last:border-b-0 sm:flex-row"
+      className="mb-12 flex flex-col flex-wrap gap-y-4 border-b border-base-300 pb-6 last:border-b-0 sm:flex-row"
     >
       {/* IMAGE */}
       <img
@@ -3347,7 +3347,7 @@ const CartItem = ({ cartItem }) => {
         {/* TITLE */}
         <h3 className="font-medium capitalize">{title}</h3>
         {/* COMPANY */}
-        <h4 className="text-neutral-content mt-2 text-sm capitalize">
+        <h4 className="mt-2 text-sm capitalize text-neutral-content">
           {company}
         </h4>
         {/* COLOR */}
@@ -3368,7 +3368,7 @@ const CartItem = ({ cartItem }) => {
           <select
             name="amount"
             id="amount"
-            className="select select-base select-bordered select-xs mt-2"
+            className="select-base select select-bordered select-xs mt-2"
             value={amount}
             onChange={handleAmount}
           >
@@ -3377,7 +3377,7 @@ const CartItem = ({ cartItem }) => {
         </div>
         {/* REMOVE */}
         <button
-          className="link link-primary link-hover mt-2 text-sm"
+          className="link-hover link link-primary mt-2 text-sm"
           onClick={removeItemFromTheCart}
         >
           remove
@@ -3563,7 +3563,7 @@ const Navbar = () => {
   };
   return (
     <nav className="bg-base-200">
-      <div className="navbar align-element">
+      <div className="align-element navbar">
         <div className="navbar-start">
           {/* Title */}
           <NavLink
@@ -3579,7 +3579,7 @@ const Navbar = () => {
             </label>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu dropdown-content menu-sm z-[1] mt-3 w-52 rounded-box bg-base-200 p-2 shadow"
             >
               <NavLinks />
             </ul>
@@ -3603,10 +3603,10 @@ const Navbar = () => {
             <BsMoonFill className="swap-off h-4 w-4" />
           </label>
           {/* CART LINK*/}
-          <NavLink to="cart" className="btn btn-ghost btn-circle btn-md ml-4">
+          <NavLink to="cart" className="btn btn-circle btn-ghost btn-md ml-4">
             <div className="indicator">
               <BsCart3 className="h-6 w-6" />
-              <span className="badge badge-sm badge-primary indicator-item">
+              <span className="badge indicator-item badge-primary badge-sm">
                 {numItemsInCart}
               </span>
             </div>
@@ -3655,13 +3655,13 @@ const Header = () => {
     dispatch(logoutUser());
   };
   return (
-    <header className="bg-neutral text-neutral-content py-2">
+    <header className="bg-neutral py-2 text-neutral-content">
       <div className="align-element flex justify-center sm:justify-end">
         {user ? (
           <div className="flex items-center gap-x-2 sm:gap-x-8">
             <p className="text-xs sm:text-sm">Hello, {user.username}</p>
             <button
-              className="btn btn-xs btn-outline btn-primary"
+              className="btn btn-outline btn-primary btn-xs"
               onClick={handleLogout}
             >
               logout
@@ -3669,10 +3669,10 @@ const Header = () => {
           </div>
         ) : (
           <div className="flex items-center justify-center gap-x-6">
-            <Link to="/login" className="link link-hover text-xs sm:text-sm">
+            <Link to="/login" className="link-hover link text-xs sm:text-sm">
               Sign in / Guest
             </Link>
-            <Link to="/register" className="link link-hover text-xs sm:text-sm">
+            <Link to="/register" className="link-hover link text-xs sm:text-sm">
               Create an Account
             </Link>
           </div>
@@ -3786,7 +3786,7 @@ const Register = () => {
     <section className="grid h-screen place-items-center">
       <Form
         method="POST"
-        className="card bg-base-100 flex w-96 flex-col gap-y-4 px-8 py-8 shadow-lg"
+        className="card flex w-96 flex-col gap-y-4 bg-base-100 px-8 py-8 shadow-lg"
       >
         <h4 className="text-center text-3xl font-bold">Register</h4>
         <FormInput type="text" label="username" name="username" />
@@ -3800,7 +3800,7 @@ const Register = () => {
           Already a member?
           <Link
             to="/login"
-            className="link link-hover link-primary ml-2 capitalize"
+            className="link-hover link link-primary ml-2 capitalize"
           >
             login
           </Link>
@@ -4477,7 +4477,7 @@ const OrdersList = () => {
         total orders : {meta.pagination.total}
       </h4>
       <div className="overflow-x-auto">
-        <table className="table-zebra table">
+        <table className="table table-zebra">
           {/* head */}
           <thead>
             <tr>
@@ -4568,8 +4568,8 @@ const ComplexPaginationContainer = () => {
       <button
         key={pageNumber}
         onClick={() => handlePageChange(pageNumber)}
-        className={`btn btn-xs sm:btn-md join-item border-none ${
-          activeClass ? "bg-base-300 border-base-300" : ""
+        className={`btn join-item btn-xs border-none sm:btn-md ${
+          activeClass ? "border-base-300 bg-base-300" : ""
         }`}
       >
         {pageNumber}
@@ -4585,7 +4585,7 @@ const ComplexPaginationContainer = () => {
     // dots
     if (page > 2) {
       pageButtons.push(
-        <button className="join-item btn btn-xs sm:btn-md" key="dots-1">
+        <button className="btn join-item btn-xs sm:btn-md" key="dots-1">
           ...
         </button>,
       );
@@ -4598,7 +4598,7 @@ const ComplexPaginationContainer = () => {
     // dots
     if (page < pageCount - 1) {
       pageButtons.push(
-        <button className="join-item btn btn-xs sm:btn-md" key="dots-2">
+        <button className="btn join-item btn-xs sm:btn-md" key="dots-2">
           ...
         </button>,
       );
@@ -4617,7 +4617,7 @@ const ComplexPaginationContainer = () => {
     <div className="mt-16 flex justify-end">
       <div className="join">
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn join-item btn-xs sm:btn-md"
           onClick={() => {
             let prevPage = page - 1;
             if (prevPage < 1) prevPage = pageCount;
@@ -4628,7 +4628,7 @@ const ComplexPaginationContainer = () => {
         </button>
         {renderPageButtons()}
         <button
-          className="btn btn-xs sm:btn-md join-item"
+          className="btn join-item btn-xs sm:btn-md"
           onClick={() => {
             let nextPage = page + 1;
             if (nextPage > pageCount) nextPage = 1;
