@@ -12,7 +12,7 @@ export const loader = async () => {
 
 const Landing = () => {
   return (
-    <div>
+    <div className="px-20">
       <Hero />
       <FeaturedProducts />
     </div>

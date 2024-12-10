@@ -21,7 +21,7 @@ const SingleProduct = () => {
   };
 
   return (
-    <section>
+    <section className="px-20">
       <div className="text-md breadcrumbs">
         <ul>
           <li>
